@@ -1,6 +1,7 @@
 import { NavLink, useParams } from "react-router-dom";
 import { getTeam } from "../helpers/getTeam"
 import { useFetch } from "../hooks/useFetch"
+import '../styles/WatchTeam.css';
 
 export const WatchTeam = () => {
 
@@ -8,7 +9,7 @@ export const WatchTeam = () => {
     const { data, error, loading } = useFetch(getTeam, tla);
 
     return (
-        <>
+        <div id="watch-team-container">
             {
                 error &&
                 <h5>{error}</h5>
@@ -26,6 +27,14 @@ export const WatchTeam = () => {
                         <li className="list-group-item"> <b>Website:</b> {data.website}</li>
                         <li className="list-group-item"> <b>Founded:</b> {data.founded}</li>
                         <li className="list-group-item"> <b>Venue:</b> {data.venue}</li>
+                        <li id="card-buttons-container" className="list-group-item">
+                            <NavLink to={`/team/edit/${tla}`}>
+                                <button type="button" className="btn btn-info">Edit</button>
+                            </NavLink>
+                            <NavLink to={`/team/delete/${tla}`}>
+                                <button type="button" className="btn btn-danger">Delete</button>
+                            </NavLink>
+                        </li>
                     </ul>
                 </div>
             }
@@ -36,7 +45,7 @@ export const WatchTeam = () => {
                 loading &&
                 <h3>Loading...</h3>
             }
-        </>
+        </div>
 
 
 

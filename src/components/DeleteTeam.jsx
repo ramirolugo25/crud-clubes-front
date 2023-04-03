@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { getTeam } from "../helpers/getTeam";
 import { useFetch } from "../hooks/useFetch";
+import '../styles/DeleteTeam.css';
 
 
 export const DeleteTeam = () => {
@@ -33,7 +34,7 @@ export const DeleteTeam = () => {
             }
             {
                 data && !loading &&
-                <div>
+                <div id="delete-team-container">
                     <div className="card" style={{ width: "18rem" }}>
                         <img src={data.crestUrl} className="card-img-top" alt={`${data.name}-image`} />
                         <div className="card-body">

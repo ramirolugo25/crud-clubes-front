@@ -68,6 +68,7 @@ export const EditTeam = () => {
 
     return (
         <>
+            <h1>Edit Team</h1>
             {
                 error &&
                 <h5>{error}</h5>

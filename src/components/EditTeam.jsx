@@ -116,15 +116,16 @@ export const EditTeam = () => {
                     <button type="submit" className="btn btn-primary" name="submit">Submit</button>
                 </form>
             }
-            <NavLink to='/'>
-                <button type="button" className="btn btn-light">Back</button>
-            </NavLink>
             {
                 messageInfo !== '' &&
                 <div className={messageInfo.state ? `alert alert-success` : `alert alert-danger`} role="alert">
                     {messageInfo.message}
                 </div>
             }
+            <NavLink to='/'>
+                <button type="button" className="btn btn-light">Back</button>
+            </NavLink>
+            
             {
                 loading &&
                 <h3>Loading...</h3>

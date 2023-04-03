@@ -18,6 +18,8 @@ export const Header = () => {
 
     if (!response.ok) {
       setErroMessage(true);
+    }else{
+      window.location.reload();
     }
   }
 

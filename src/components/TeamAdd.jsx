@@ -92,7 +92,7 @@ export const TeamAdd = () => {
                 </div>
             }
 
-            <NavLink to='/'> 
+            <NavLink to='/'>
                 <button type="button" className="btn btn-light">Back</button>
             </NavLink>
 

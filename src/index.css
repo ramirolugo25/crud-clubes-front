@@ -1,10 +1,10 @@
-body{
+body {
     width: 100vw;
     background-color: #212529;
     overflow-x: hidden;
 }
 
-#root{
+#root {
     display: flex;
     justify-content: center;
     flex-direction: column;

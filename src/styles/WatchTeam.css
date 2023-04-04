@@ -1,10 +1,10 @@
-#watch-team-container{
+#watch-team-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-#card-buttons-container{
+#card-buttons-container {
     display: flex;
     justify-content: space-between;
 }

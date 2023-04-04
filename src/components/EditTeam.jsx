@@ -126,7 +126,7 @@ export const EditTeam = () => {
             <NavLink to='/'>
                 <button type="button" className="btn btn-light">Back</button>
             </NavLink>
-            
+
             {
                 loading &&
                 <h3>Loading...</h3>

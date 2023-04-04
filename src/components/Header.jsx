@@ -19,7 +19,7 @@ export const Header = () => {
 
     if (!response.ok) {
       setErroMessage(true);
-    }else{
+    } else {
       window.location.reload();
     }
   }

@@ -25,14 +25,13 @@ export const DeleteTeam = () => {
 
         if (!response.ok) {
             setErroMessage(true);
-        }else{
+        } else {
             setConfirmationMessage(true);
             setTimeout(() => {
                 navigate('/');
             }, 1500);
         }
 
-        
     }
 
     return (

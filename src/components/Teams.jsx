@@ -6,11 +6,11 @@ import { Header } from "./Header";
 
 export const Teams = () => {
 
-    const { data, error, loading } = useFetch(getTeams);
-  
-return (
+  const { data, error, loading } = useFetch(getTeams);
+
+  return (
     <>
-      <Header/>
+      <Header />
       {error &&
         <h1 id='error'>{error}</h1>
       }

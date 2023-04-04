@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { getTeam } from "../helpers/getTeam";
 import { useFetch } from "../hooks/useFetch";
 
@@ -11,6 +11,7 @@ export const EditTeam = () => {
     const { data, error, loading } = useFetch(getTeam, tla);
     const [form, setForm] = useState({});
     const [messageInfo, setMessageInfo] = useState('')
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -43,7 +44,7 @@ export const EditTeam = () => {
         }
 
         setTimeout(() => {
-            window.location.reload();
+            navigate('/');
         }, 1000);
     }
 

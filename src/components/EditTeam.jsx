@@ -6,6 +6,7 @@ import { useFetch } from "../hooks/useFetch";
 
 export const EditTeam = () => {
 
+    const BASEURL = 'https://crud-clubes-back.onrender.com/';
     const { tla } = useParams();
     const { data, error, loading } = useFetch(getTeam, tla);
     const [form, setForm] = useState({});
@@ -68,13 +69,14 @@ export const EditTeam = () => {
 
     return (
         <>
+            <h1>Edit Team</h1>
             {
                 error &&
                 <h5>{error}</h5>
             }
             {
                 data && !loading &&
-                <form action={`http://localhost:8080/team/edit/${tla}`} encType="multipart/form-data" onSubmit={handleSubmit}>
+                <form action={`${BASEURL}team/edit/${tla}`} encType="multipart/form-data" onSubmit={handleSubmit}>
 
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">Name</label>
@@ -115,15 +117,16 @@ export const EditTeam = () => {
                     <button type="submit" className="btn btn-primary" name="submit">Submit</button>
                 </form>
             }
-            <NavLink to='/'>
-                <button type="button" className="btn btn-light">Back</button>
-            </NavLink>
             {
                 messageInfo !== '' &&
                 <div className={messageInfo.state ? `alert alert-success` : `alert alert-danger`} role="alert">
                     {messageInfo.message}
                 </div>
             }
+            <NavLink to='/'>
+                <button type="button" className="btn btn-light">Back</button>
+            </NavLink>
+            
             {
                 loading &&
                 <h3>Loading...</h3>

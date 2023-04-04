@@ -1,14 +1,17 @@
 import { useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { getTeam } from "../helpers/getTeam";
 import { useFetch } from "../hooks/useFetch";
+import '../styles/DeleteTeam.css';
 
 
 export const DeleteTeam = () => {
-
+    const BASEURL = 'https://crud-clubes-back.onrender.com/';
     const { tla } = useParams();
     const { data, error, loading } = useFetch(getTeam, tla);
     const [erroMessage, setErroMessage] = useState(false);
+    const [confirmationMessage, setConfirmationMessage] = useState(false);
+    const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -22,7 +25,14 @@ export const DeleteTeam = () => {
 
         if (!response.ok) {
             setErroMessage(true);
+        }else{
+            setConfirmationMessage(true);
+            setTimeout(() => {
+                navigate('/');
+            }, 1500);
         }
+
+        
     }
 
     return (
@@ -33,7 +43,7 @@ export const DeleteTeam = () => {
             }
             {
                 data && !loading &&
-                <div>
+                <div id="delete-team-container">
                     <div className="card" style={{ width: "18rem" }}>
                         <img src={data.crestUrl} className="card-img-top" alt={`${data.name}-image`} />
                         <div className="card-body">
@@ -48,10 +58,10 @@ export const DeleteTeam = () => {
                         </ul>
                     </div>
 
-                    <form action={`http://localhost:8080/team/delete/${tla}`} onSubmit={handleSubmit}>
+                    <form action={`${BASEURL}team/delete/${tla}`} onSubmit={handleSubmit}>
 
-                        <div className="alert alert-danger" role="alert">
-                            Are you sure you want to delete the team?
+                        <div className={confirmationMessage ? `alert alert-success` : `alert alert-danger`} role="alert">
+                            {confirmationMessage ? 'The team has been deleted successfully' : 'Are you sure you want to delete the team?'}
                         </div>
 
                         <button type="submit" className="btn btn-danger">Yes, delete</button>

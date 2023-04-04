@@ -4,6 +4,7 @@ import '../styles/Header.css';
 
 export const Header = () => {
 
+  const BASEURL = 'https://crud-clubes-back.onrender.com/';
   const [erroMessage, setErroMessage] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -26,7 +27,7 @@ export const Header = () => {
   return (
     <>
       <div id="header-container">
-        <form action="http://localhost:8080/" onSubmit={handleSubmit}>
+        <form action={BASEURL} onSubmit={handleSubmit}>
           <button type="submit" className="btn btn-secondary">Reset Teams</button>
         </form>
         <NavLink to='/team/add'>

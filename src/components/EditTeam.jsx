@@ -6,6 +6,7 @@ import { useFetch } from "../hooks/useFetch";
 
 export const EditTeam = () => {
 
+    const BASEURL = 'https://crud-clubes-back.onrender.com/';
     const { tla } = useParams();
     const { data, error, loading } = useFetch(getTeam, tla);
     const [form, setForm] = useState({});
@@ -75,7 +76,7 @@ export const EditTeam = () => {
             }
             {
                 data && !loading &&
-                <form action={`http://localhost:8080/team/edit/${tla}`} encType="multipart/form-data" onSubmit={handleSubmit}>
+                <form action={`${BASEURL}team/edit/${tla}`} encType="multipart/form-data" onSubmit={handleSubmit}>
 
                     <div className="mb-3">
                         <label htmlFor="name" className="form-label">Name</label>

@@ -6,7 +6,7 @@ import '../styles/DeleteTeam.css';
 
 
 export const DeleteTeam = () => {
-
+    const BASEURL = 'https://crud-clubes-back.onrender.com/';
     const { tla } = useParams();
     const { data, error, loading } = useFetch(getTeam, tla);
     const [erroMessage, setErroMessage] = useState(false);
@@ -58,7 +58,7 @@ export const DeleteTeam = () => {
                         </ul>
                     </div>
 
-                    <form action={`http://localhost:8080/team/delete/${tla}`} onSubmit={handleSubmit}>
+                    <form action={`${BASEURL}team/delete/${tla}`} onSubmit={handleSubmit}>
 
                         <div className={confirmationMessage ? `alert alert-success` : `alert alert-danger`} role="alert">
                             {confirmationMessage ? 'The team has been deleted successfully' : 'Are you sure you want to delete the team?'}

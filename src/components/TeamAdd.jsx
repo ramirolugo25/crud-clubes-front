@@ -4,6 +4,7 @@ import '../styles/TeamAdd.css';
 
 export const TeamAdd = () => {
 
+    const BASEURL = 'https://crud-clubes-back.onrender.com/';
     const [messageInfo, setMessageInfo] = useState('');
 
     const handleSubmit = async (event) => {
@@ -40,7 +41,7 @@ export const TeamAdd = () => {
         <div id="add-team-container">
             <h1>Add Team</h1>
 
-            <form action="http://localhost:8080/team/add" method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
+            <form action={`${BASEURL}team/add`} method="post" encType="multipart/form-data" onSubmit={handleSubmit}>
 
                 <div className="mb-3">
                     <label htmlFor="name" className="form-label">Name</label>
